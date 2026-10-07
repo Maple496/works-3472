@@ -42,6 +42,7 @@ Work.register({
     UI.init(ctx.stage, __canvas);
 
     // 3) 交互合同：指针事件承载核心操作（拖挡板 + 发球），键盘为快捷方式
+    //    over 状态下：点击 = 重开（三命耗尽后的重开入口）
     _on(__canvas, 'pointerdown', function (e) {
       Game.onPointer(e.offsetX, e.offsetY, 'down');
     });
@@ -56,6 +57,8 @@ Work.register({
     });
 
     // 4) 主循环：步进引擎状态，交给 UI 渲染
+    //    over 时 UI.render 会依据 state（分数/命/over 标志）绘制
+    //    得分与「点击或按空格重开」提示；漏球未耗尽命时引擎内续命
     var loop = function (t) {
       Game.step(t);
       UI.render(__g, Game.getState());
