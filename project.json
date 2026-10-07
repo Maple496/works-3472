@@ -1,0 +1,26 @@
+{
+  "name": "打砖块·砖破天惊",
+  "brief": "拖动挡板反弹小球击碎砖块，清屏过关，三条命挑战高分。",
+  "work_ref": "WORKS-3472",
+  "entry": "src/main.js",
+  "status": "wip",
+  "files": [
+    {
+      "path": "src/engine.js",
+      "role": "引擎：游戏状态机与主循环步进（物理、关卡、生命、得分）"
+    },
+    {
+      "path": "src/entities.js",
+      "role": "实体与规则：球/挡板/砖块的几何行为、碰撞与得分判定"
+    },
+    {
+      "path": "src/ui.js",
+      "role": "界面与渲染：canvas 绘制场景与 HUD，absolute 覆盖层（开始/结束弹窗）"
+    },
+    {
+      "path": "src/main.js",
+      "role": "入口：创建画布、装配引擎与实体模块、Work.register 容器合同（mount/destroy）"
+    }
+  ],
+  "generated_by": "proj_forge（AI 工程工坊）"
+}
